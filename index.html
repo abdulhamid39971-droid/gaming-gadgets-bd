@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Gadgets BD | Gaming Store</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080d12;color:#fff}
+header{background:#101820;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;border-bottom:1px solid #263b35}
+.logo{font-size:22px;font-weight:bold;color:#7cff6b}
+.logo span{color:white}
+header button,.btn{background:#83ee65;color:#071008;border:0;padding:12px 17px;border-radius:8px;font-weight:bold;cursor:pointer}
+.hero{text-align:center;padding:65px 18px;background:linear-gradient(135deg,#102b24,#101827,#080d12)}
+.hero h1{font-size:36px;color:#8bff6b;margin-bottom:15px}
+.hero p{color:#c7d1d4;line-height:1.7}
+.hero .btn{display:inline-block;margin-top:23px;text-decoration:none}
+.section{padding:35px 5%}
+.section h2{text-align:center;margin-bottom:25px;color:#8bff6b;font-size:26px}
+.categories{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:25px}
+.categories button{padding:10px 15px;background:#17231f;color:white;border:1px solid #344a3d;border-radius:20px;cursor:pointer}
+.categories button.active{background:#83ee65;color:#071008}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:16px}
+.card{background:#131c23;border:1px solid #293b39;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:145px;object-fit:cover;background:#202c2c}
+.info{padding:13px}
+.info h3{font-size:15px;min-height:35px}
+.price{color:#8bff6b;font-size:18px;font-weight:bold;margin:10px 0}
+.info button{width:100%;background:#83ee65;color:#071008;border:0;padding:10px;border-radius:7px;font-weight:bold;cursor:pointer}
+.cartbox{background:#131c23;border:1px solid #293b39;border-radius:12px;padding:18px;margin-top:20px}
+.cartbox input,.cartbox textarea{width:100%;padding:12px;margin:7px 0 12px;background:#080d12;border:1px solid #40524c;color:white;border-radius:7px}
+.cartbox label{font-size:14px;color:#c9d3ce}
+.cartbox button{padding:12px;background:#83ee65;border:0;border-radius:7px;font-weight:bold;cursor:pointer}
+footer{text-align:center;background:#101820;padding:30px;color:#abb8b1;line-height:2;margin-top:30px}
+footer strong{color:#8bff6b}
+#cartItems{line-height:2;color:#d9e4dc}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">GAMING <span>GADGETS BD</span></div>
+<button onclick="document.getElementById('cart').scrollIntoView()">🛒 Cart (<span id="count">0</span>)</button>
+</header>
+
+<section class="hero">
+<h1>LEVEL UP YOUR GAMING!</h1>
+<p>বাংলাদেশের গেমারদের জন্য Gaming Gadgets BD</p>
+<p>Gaming Headset | Microphone | Keyboard | Mouse</p>
+<a href="#shop" class="btn">SHOP NOW →</a>
+</section>
+
+<section class="section" id="shop">
+<h2>🔥 OUR GAMING PRODUCTS</h2>
+<div class="categories" id="categories"></div>
+<div class="products" id="products"></div>
+</section>
+
+<section class="section" id="cart">
+<h2>🛒 YOUR SHOPPING CART</h2>
+<div class="cartbox">
+<div id="cartItems">আপনার কার্ট এখন খালি।</div>
+<h3 id="total" style="color:#8bff6b;margin:15px 0">Total: ৳0</h3>
+<hr style="border-color:#34443c;margin:15px 0">
+<h3 style="margin-bottom:15px">অর্ডারের তথ্য দিন</h3>
+<form id="orderForm">
+<label>আপনার নাম</label>
+<input id="customer" placeholder="আপনার নাম লিখুন" required>
+<label>মোবাইল নম্বর</label>
+<input id="phone" type="tel" placeholder="01XXXXXXXXX" required>
+<label>সম্পূর্ণ ঠিকানা</label>
+<textarea id="address" placeholder="আপনার ঠিকানা লিখুন" required></textarea>
+<button type="submit">অর্ডার তৈরি করুন</button>
+</form>
+<p style="font-size:12px;color:#abb8b1;margin-top:12px">এটি প্রাথমিক ডেমো অর্ডার ব্যবস্থা। অর্ডার তৈরি হলে তথ্য কপি করে দোকানে পাঠাতে পারবেন।</p>
+</div>
+</section>
+
+<footer>
+<strong>GAMING GADGETS BD</strong><br>
+Your Ultimate Gaming Gear Store<br>
+বাংলাদেশের গেমারদের প্রথম পছন্দ হতে চাই!
+</footer>
+
+<script>
+const items=[
+{name:"Gaming Headset",price:1250,cat:"Headset",img:"https://images.unsplash.com/photo-1599669454699-248893623440?w=500"},
+{name:"Gaming Microphone",price:1850,cat:"Microphone",img:"https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=500"},
+{name:"RGB Gaming Keyboard",price:2200,cat:"Keyboard",img:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500"},
+{name:"Gaming Mouse",price:750,cat:"Mouse",img:"https://images.unsplash.com/photo-1527814050087-3793815479db?w=500"},
+{name:"Gaming Monitor",price:14500,cat:"Monitor",img:"https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500"},
+{name:"RGB Mouse Pad",price:650,cat:"Accessories",img:"https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=500"},
+{name:"Gaming Controller",price:1800,cat:"Accessories",img:"https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=500"},
+{name:"Gaming Chair",price:9500,cat:"Accessories",img:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=500"}
+];
+let cart=[];
+let category="All";
+function render(){
+document.getElementById("products").innerHTML=items.filter(p=>category==="All"||p.cat===category).map(p=>`
+<div class="card">
+<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'">
+<div class="info"><h3>${p.name}</h3>
+<div class="price">৳${p.price.toLocaleString("en-US")}</div>
+<button onclick="add('${p.name}')">Add to Cart +</button></div></div>`).join("");
+}
+function add(name){
+let p=items.find(x=>x.name===name);
+let old=cart.find(x=>x.name===name);
+if(old)old.qty++;else cart.push({...p,qty:1});
+update();
+}
+function update(){
+let count=cart.reduce((s,p)=>s+p.qty,0);
+let total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+document.getElementById("count").textContent=count;
+document.getElementById("total").textContent="Total: ৳"+total.toLocaleString("en-US");
+document.getElementById("cartItems").innerHTML=cart.length?cart.map((p,i)=>`
+<div>${p.name} × ${p.qty} — ৳${(p.price*p.qty).toLocaleString("en-US")}
+<button onclick="removeItem(${i})" style="padding:3px 8px;margin-left:8px">−</button></div>`).join(""):"আপনার কার্ট এখন খালি।";
+}
+function removeItem(i){
+cart[i].qty--;
+if(cart[i].qty<=0)cart.splice(i,1);
+update();
+}
+let cats=["All","Headset","Microphone","Keyboard","Mouse","Monitor","Accessories"];
+document.getElementById("categories").innerHTML=cats.map(c=>`<button class="${c==="All"?"active":""}" onclick="filter('${c}',this)">${c}</button>`).join("");
+function filter(c,el){
+category=c;
+document.querySelectorAll(".categories button").forEach(b=>b.classList.remove("active"));
+el.classList.add("active");
+render();
+}
+document.getElementById("orderForm").addEventListener("submit",function(e){
+e.preventDefault();
+if(!cart.length){alert("প্রথমে কার্টে পণ্য যোগ করুন।");return;}
+let total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+let msg="Gaming Gadgets BD Order\nName: "+customer.value+"\nPhone: "+phone.value+"\nAddress: "+address.value+"\n\n"+cart.map(p=>p.name+" x "+p.qty+" = Tk "+p.price*p.qty).join("\n")+"\n\nTotal: Tk "+total;
+if(navigator.share){
+navigator.share({title:"Gaming Gadgets BD Order",text:msg}).catch(()=>copyOrder(msg));
+}else copyOrder(msg);
+});
+function copyOrder(msg){
+if(navigator.clipboard){
+navigator.clipboard.writeText(msg).then(()=>alert("অর্ডারের তথ্য কপি হয়েছে। দোকানে পাঠিয়ে দিন।")).catch(()=>alert(msg));
+}else alert(msg);
+}
+render();
+</script>
+</body>
+</html>
